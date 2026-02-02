@@ -52,26 +52,26 @@ export function PlaceCard({ place, onEdit, onNavigate }: PlaceCardProps) {
       <div className="pl-3 flex flex-col gap-2">
         {/* ヘッダー: 場所名 + 日時 */}
         <div className="flex justify-between items-start gap-2">
-          <h3 className="text-base font-bold text-text flex-1 line-clamp-1">{place.name}</h3>
-          <span className="text-xs text-text-secondary whitespace-nowrap">
+          <h3 className="text-lg font-bold text-text flex-1 line-clamp-1">{place.name}</h3>
+          <span className="text-sm text-text-secondary whitespace-nowrap">
             {formattedDate} {formattedTime}
           </span>
         </div>
 
         {/* 住所 */}
         {place.address && (
-          <p className="text-sm text-text-secondary line-clamp-1">📍 {place.address}</p>
+          <p className="text-base text-text-secondary line-clamp-1">📍 {place.address}</p>
         )}
 
         {/* カテゴリバッジとメモ */}
         <div className="flex items-center gap-2 flex-wrap">
           {categoryName && (
-            <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium text-white ${categoryColor}`}>
+            <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-sm font-medium text-white ${categoryColor}`}>
               {categoryName}
             </span>
           )}
           {place.memo && (
-            <span className="text-xs text-text-secondary line-clamp-1 flex-1">💬 {place.memo}</span>
+            <span className="text-sm text-text-secondary line-clamp-1 flex-1">💬 {place.memo}</span>
           )}
         </div>
 

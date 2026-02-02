@@ -76,35 +76,35 @@ export function HomePage() {
       />
 
       <main className="flex-1 flex flex-col pb-6">
-        {/* Action Buttons Section - 横並び */}
-        <div className="px-4 py-3 flex gap-2">
+        {/* Action Buttons Section - 縦並び */}
+        <div className="px-4 py-3 flex flex-col gap-2">
           <Button
             variant="primary"
             size="normal"
             onClick={() => navigate('/place/new?useCurrentLocation=true')}
-            className="flex-1 whitespace-nowrap text-sm"
+            className="w-full"
           >
-            📍 今いる場所を登録
+            📍 現在地を登録
           </Button>
 
           <Button
             variant="secondary"
             size="normal"
             onClick={() => navigate('/search')}
-            className="flex-1 whitespace-nowrap text-sm"
+            className="w-full"
           >
             🗺️ 場所を検索
           </Button>
         </div>
 
-        {/* Places Section - Visually Grouped */}
-        <div className="flex-1 mx-4 bg-surface rounded-2xl border border-border shadow-sm overflow-hidden flex flex-col">
+        {/* Places Section */}
+        <div className="flex-1 flex flex-col overflow-hidden">
           {/* Section Header */}
-          <div className="px-4 py-3 border-b border-border bg-gray-50/50 flex items-center justify-between">
-            <h2 className="text-base font-bold text-text">登録した場所</h2>
+          <div className="px-4 py-3 border-b border-border flex items-center justify-between">
+            <h2 className="text-lg font-bold text-text">登録した場所</h2>
             <button
               onClick={() => navigate('/calendar')}
-              className="flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium text-primary bg-primary/10 hover:bg-primary/20 active:bg-primary/30 transition-colors"
+              className="flex items-center gap-1 px-3 py-2 rounded-full text-base font-medium text-primary bg-primary/10 hover:bg-primary/20 active:bg-primary/30 transition-colors"
             >
               <span>📅</span>
               <span>登録日で絞る</span>
@@ -118,11 +118,11 @@ export function HomePage() {
               <select
                 value={activeTabId}
                 onChange={(e) => setActiveTabId(e.target.value)}
-                className="w-full px-3 py-2 text-sm font-medium rounded-lg border border-border bg-white text-text cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary/30 truncate"
+                className="w-full px-3 py-2.5 text-base font-medium rounded-lg border border-border bg-white text-text cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary/30 truncate"
               >
                 {tabs.map((tab) => (
                   <option key={tab.id} value={tab.id}>
-                    {`表示: ${tab.name}`}
+                    {`カテゴリ: ${tab.name}`}
                   </option>
                 ))}
               </select>
@@ -138,13 +138,13 @@ export function HomePage() {
             {filteredPlaces.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-8 text-center">
                 <p className="text-4xl mb-3">📍</p>
-                <p className="text-base text-text-secondary">
+                <p className="text-lg text-text-secondary">
                   {activeTabId === 'all'
                     ? 'まだ場所が登録されていません'
                     : 'このカテゴリには場所がありません'}
                 </p>
                 {activeTabId === 'all' && (
-                  <p className="text-sm text-text-secondary mt-1">
+                  <p className="text-base text-text-secondary mt-1">
                     上のボタンから場所を登録してみましょう
                   </p>
                 )}

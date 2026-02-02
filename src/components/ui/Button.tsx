@@ -34,9 +34,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     const sizeStyles = {
-      small: 'min-h-[40px] px-4 py-2 text-base',
-      normal: 'min-h-[44px] px-5 py-2.5 text-base',
-      large: 'min-h-[52px] px-6 py-3 text-lg',
+      small: 'min-h-[44px] px-4 py-2 text-base',
+      normal: 'min-h-[52px] px-5 py-3 text-lg',
+      large: 'min-h-[60px] px-6 py-3.5 text-xl',
     };
 
     const iconElement = icon && (
